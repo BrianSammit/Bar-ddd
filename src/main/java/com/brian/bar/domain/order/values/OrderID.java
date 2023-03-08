@@ -1,4 +1,4 @@
-package com.brian.bar.domain.values;
+package com.brian.bar.domain.order.values;
 
 import com.brian.bar.generic.Identity;
 
