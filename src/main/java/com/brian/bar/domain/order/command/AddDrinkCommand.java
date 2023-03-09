@@ -1,6 +1,8 @@
 package com.brian.bar.domain.order.command;
 
-public class AddDrinkCommand {
+import com.brian.bar.generic.Command;
+
+public class AddDrinkCommand extends Command {
     private String drinkID;
     private String name;
     private Float price;
