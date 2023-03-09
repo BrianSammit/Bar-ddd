@@ -4,6 +4,7 @@ import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.order.Order;
 import com.brian.bar.domain.order.OrderEventChange;
 import com.brian.bar.domain.order.event.DrinkAdded;
+import com.brian.bar.domain.order.event.DrinkRemoved;
 import com.brian.bar.domain.order.values.OrderID;
 import com.brian.bar.domain.table.event.CostumerAdded;
 import com.brian.bar.domain.table.event.TableCreated;
@@ -44,5 +45,10 @@ public class Table extends AggregateRoot<TableID> {
         Objects.requireNonNull(costumerID);
         Objects.requireNonNull(name);
         appendChange(new CostumerAdded(costumerID.value(), name)).apply();
+    }
+
+    public void removeCostumer(String costumerID){
+        Objects.requireNonNull(costumerID);
+        appendChange(new DrinkRemoved(costumerID)).apply();
     }
 }

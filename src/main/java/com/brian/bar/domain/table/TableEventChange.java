@@ -4,7 +4,9 @@ import com.brian.bar.domain.drink.Drink;
 import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.drink.values.Name;
 import com.brian.bar.domain.order.event.DrinkAdded;
+import com.brian.bar.domain.order.event.DrinkRemoved;
 import com.brian.bar.domain.table.event.CostumerAdded;
+import com.brian.bar.domain.table.event.CostumerRemoved;
 import com.brian.bar.domain.table.event.TableCreated;
 import com.brian.bar.domain.table.values.CostumerID;
 import com.brian.bar.domain.table.values.TableNum;
@@ -28,6 +30,10 @@ public class TableEventChange extends EventChange {
                     new Name(event.getName())
             );
             table.costumers.add(costumer);
+        });
+
+        apply((CostumerRemoved event) -> {
+            table.costumers.removeIf(costumer -> costumer.identity().value().equals(event.getCostumerID()));
         });
     }
 }
