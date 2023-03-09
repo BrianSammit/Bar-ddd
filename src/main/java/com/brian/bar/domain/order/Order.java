@@ -5,6 +5,7 @@ import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.drink.values.Name;
 import com.brian.bar.domain.drink.values.Price;
 import com.brian.bar.domain.order.event.DrinkAdded;
+import com.brian.bar.domain.order.event.DrinkRemoved;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.values.Modification;
 import com.brian.bar.domain.order.values.OrderID;
@@ -45,6 +46,11 @@ public class Order extends AggregateRoot<OrderID> {
         Objects.requireNonNull(name);
         Objects.requireNonNull(price);
         Objects.requireNonNull(modification);
-        appendChange(new DrinkAdded(drinkID.value(), name, price, modification));
+        appendChange(new DrinkAdded(drinkID.value(), name, price, modification)).apply();
+    }
+
+    public void removeDrink(String drinkID){
+        Objects.requireNonNull(drinkID);
+        appendChange(new DrinkRemoved(drinkID)).apply();
     }
 }

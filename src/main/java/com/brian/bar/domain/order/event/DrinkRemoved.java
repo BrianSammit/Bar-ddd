@@ -5,8 +5,8 @@ import com.brian.bar.generic.DomainEvent;
 public class DrinkRemoved extends DomainEvent {
     protected String drinkID;
 
-    public DrinkRemoved(String type, String drinkID) {
-        super(type);
+    public DrinkRemoved(String drinkID) {
+        super("brian.bar.drinkremoved");
         this.drinkID = drinkID;
     }
 
