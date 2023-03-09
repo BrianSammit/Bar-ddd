@@ -2,7 +2,6 @@ package com.brian.bar.business.order;
 
 import com.brian.bar.business.commons.EventRepository;
 import com.brian.bar.business.commons.UseCaseForCommand;
-import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.order.Order;
 import com.brian.bar.domain.order.command.RemoveDrinkCommand;
 import com.brian.bar.domain.order.values.OrderID;
