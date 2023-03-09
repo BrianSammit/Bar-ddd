@@ -1,6 +1,12 @@
 package com.brian.bar.domain.table;
 
+import com.brian.bar.domain.drink.Drink;
+import com.brian.bar.domain.drink.values.DrinkID;
+import com.brian.bar.domain.drink.values.Name;
+import com.brian.bar.domain.order.event.DrinkAdded;
+import com.brian.bar.domain.table.event.CostumerAdded;
 import com.brian.bar.domain.table.event.TableCreated;
+import com.brian.bar.domain.table.values.CostumerID;
 import com.brian.bar.domain.table.values.TableNum;
 import com.brian.bar.domain.table.values.Waiter;
 import com.brian.bar.generic.EventChange;
@@ -14,6 +20,14 @@ public class TableEventChange extends EventChange {
             table.tableNum = new TableNum(event.getTableNum());
             table.waiter = new Waiter(event.getWaiter());
             table.costumers = new ArrayList<>();
-        } );
+        });
+
+        apply((CostumerAdded event) -> {
+            Costumer costumer = new Costumer(
+                    CostumerID.of(event.getCostumerID()),
+                    new Name(event.getName())
+            );
+            table.costumers.add(costumer);
+        });
     }
 }
