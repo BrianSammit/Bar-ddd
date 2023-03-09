@@ -6,10 +6,10 @@ public class DrinkAdded extends DomainEvent {
 
     protected String drinkID;
     protected String name;
-    protected String price;
+    protected Float price;
     protected String modification;
 
-    public DrinkAdded(String drinkID, String name, String price, String modification) {
+    public DrinkAdded(String drinkID, String name, Float price, String modification) {
         super("brian.bar.drinkadded");
         this.drinkID = drinkID;
         this.name = name;
@@ -25,7 +25,7 @@ public class DrinkAdded extends DomainEvent {
         return name;
     }
 
-    public String getPrice() {
+    public Float getPrice() {
         return price;
     }
 
