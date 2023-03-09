@@ -35,14 +35,14 @@ class CreateOrderUseCaseTest {
                 "table1",
                 "drink1"
         );
-//        OrderCreated orderCreated = new OrderCreated(
-//                "Pending",
-//                "Especial modification",
-//                "table1",
-//                "drink1"
-//        );
-//
-//        orderCreated.setAggregateRootId("orderID");
+        OrderCreated orderCreated = new OrderCreated(
+                "Pending",
+                "Especial modification",
+                "table1",
+                "drink1"
+        );
+
+        orderCreated.setAggregateRootId("orderID");
         Mockito.when(eventRepository.saveEvent(ArgumentMatchers.any(OrderCreated.class)))
                 .thenAnswer(invocationOnMock -> {
                     return  invocationOnMock.getArgument(0);
