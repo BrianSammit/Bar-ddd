@@ -4,12 +4,12 @@ import com.brian.bar.generic.DomainEvent;
 
 public class OrderCreated extends DomainEvent {
 
-    protected String status;
-    protected String modification;
-    protected String tableID;
-    protected String drinkID;
+    private String status;
+    private String modification;
+    private String tableID;
+    private String drinkID;
 
-    public OrderCreated(String type, String status, String modification, String tableID, String drinkID) {
+    public OrderCreated(String status, String modification, String tableID, String drinkID) {
         super("brian.bar.ordercreated");
         this.status = status;
         this.modification = modification;
