@@ -3,6 +3,7 @@ package com.brian.bar.domain.order;
 import com.brian.bar.domain.drink.Drink;
 import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.order.event.DrinkAdded;
+import com.brian.bar.domain.order.event.DrinkRemoved;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.values.Modification;
 import com.brian.bar.domain.order.values.Status;
@@ -25,6 +26,10 @@ public class OrderEventChange extends EventChange {
                     DrinkID.of(event.getDrinkID())
             );
             order.drinks.add(drink);
+        });
+
+        apply((DrinkRemoved event) -> {
+            order.drinks.removeIf(drink -> drink.identity().value().equals(event.getDrinkID()));
         });
     }
 }
