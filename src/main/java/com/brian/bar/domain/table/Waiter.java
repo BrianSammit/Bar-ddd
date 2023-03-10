@@ -1,7 +1,6 @@
 package com.brian.bar.domain.table;
 
 import com.brian.bar.domain.drink.values.Name;
-import com.brian.bar.domain.table.values.CostumerID;
 import com.brian.bar.domain.table.values.WaiterID;
 import com.brian.bar.generic.Entity;
 

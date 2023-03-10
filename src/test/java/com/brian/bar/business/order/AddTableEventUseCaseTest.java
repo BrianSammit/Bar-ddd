@@ -1,7 +1,6 @@
 package com.brian.bar.business.order;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.domain.order.event.DrinkAdded;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.event.TableAdded;
 import com.brian.bar.generic.DomainEvent;

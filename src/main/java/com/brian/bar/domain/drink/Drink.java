@@ -5,8 +5,6 @@ import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.drink.values.Name;
 import com.brian.bar.domain.drink.values.Price;
 import com.brian.bar.domain.order.values.Modification;
-import com.brian.bar.domain.table.Table;
-import com.brian.bar.domain.table.values.TableID;
 import com.brian.bar.generic.AggregateRoot;
 import com.brian.bar.generic.DomainEvent;
 

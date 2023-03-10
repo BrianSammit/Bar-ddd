@@ -1,13 +1,9 @@
 package com.brian.bar.business.order;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.business.table.AddWaiterUseCase;
 import com.brian.bar.domain.order.command.AddTableCommand;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.event.TableAdded;
-import com.brian.bar.domain.table.command.AddWaiterCommand;
-import com.brian.bar.domain.table.event.TableCreated;
-import com.brian.bar.domain.table.event.WaiterAdded;
 import com.brian.bar.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +18,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class AddTableUseCaseTest {

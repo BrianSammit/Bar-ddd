@@ -3,7 +3,6 @@ package com.brian.bar.business.order;
 import com.brian.bar.business.commons.EventRepository;
 import com.brian.bar.business.commons.UseCaseForCommand;
 import com.brian.bar.domain.order.Order;
-import com.brian.bar.domain.order.command.AddTableCommand;
 import com.brian.bar.domain.order.command.ChangeTableCommand;
 import com.brian.bar.domain.order.values.OrderID;
 import com.brian.bar.domain.table.values.TableID;
