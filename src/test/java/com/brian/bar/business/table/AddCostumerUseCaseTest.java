@@ -1,7 +1,6 @@
 package com.brian.bar.business.table;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.domain.order.event.DrinkAdded;
 import com.brian.bar.domain.table.command.AddCostumerCommand;
 import com.brian.bar.domain.table.event.CostumerAdded;
 import com.brian.bar.domain.table.event.TableCreated;
@@ -35,7 +34,6 @@ class AddCostumerUseCaseTest {
     void successfulScenario() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         TableCreated tableCreated = new TableCreated(
                 5,
-                "Waiter name",
                 "costumerID"
         );
         tableCreated.setAggregateRootId("tableID");

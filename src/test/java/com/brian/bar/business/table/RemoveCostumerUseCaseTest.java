@@ -34,7 +34,6 @@ class  RemoveCostumerUseCaseTest{
     void successfulScenario() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         TableCreated tableCreated = new TableCreated(
                 3,
-                "Waiter name",
                 "costumerID"
         );
         tableCreated.setAggregateRootId("tableID");

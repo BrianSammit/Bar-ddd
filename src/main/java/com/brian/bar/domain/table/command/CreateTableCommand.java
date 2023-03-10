@@ -6,13 +6,11 @@ public class CreateTableCommand extends Command {
 
     private String id;
     private Integer tableNum;
-    private String waiter;
     private String costumerID;
 
-    public CreateTableCommand(String id, Integer tableNum, String waiter, String costumerID) {
+    public CreateTableCommand(String id, Integer tableNum, String costumerID) {
         this.id = id;
         this.tableNum = tableNum;
-        this.waiter = waiter;
         this.costumerID = costumerID;
     }
 
@@ -30,14 +28,6 @@ public class CreateTableCommand extends Command {
 
     public void setTableNum(Integer tableNum) {
         this.tableNum = tableNum;
-    }
-
-    public String getWaiter() {
-        return waiter;
-    }
-
-    public void setWaiter(String waiter) {
-        this.waiter = waiter;
     }
 
     public String getCostumerID() {

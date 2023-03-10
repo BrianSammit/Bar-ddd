@@ -1,18 +1,13 @@
 package com.brian.bar.domain.table;
 
-import com.brian.bar.domain.drink.values.DrinkID;
-import com.brian.bar.domain.order.Order;
-import com.brian.bar.domain.order.OrderEventChange;
-import com.brian.bar.domain.order.event.DrinkAdded;
-import com.brian.bar.domain.order.event.DrinkRemoved;
-import com.brian.bar.domain.order.values.OrderID;
 import com.brian.bar.domain.table.event.CostumerAdded;
 import com.brian.bar.domain.table.event.CostumerRemoved;
 import com.brian.bar.domain.table.event.TableCreated;
+import com.brian.bar.domain.table.event.WaiterAdded;
 import com.brian.bar.domain.table.values.CostumerID;
 import com.brian.bar.domain.table.values.TableID;
 import com.brian.bar.domain.table.values.TableNum;
-import com.brian.bar.domain.table.values.Waiter;
+import com.brian.bar.domain.table.values.WaiterID;
 import com.brian.bar.generic.AggregateRoot;
 import com.brian.bar.generic.DomainEvent;
 
@@ -24,10 +19,10 @@ public class Table extends AggregateRoot<TableID> {
     protected TableNum tableNum;
     protected Waiter waiter;
     protected List<Costumer> costumers;
-    public Table(TableID id, TableNum tableNum, Waiter waiter, CostumerID costumerID) {
+    public Table(TableID id, TableNum tableNum, CostumerID costumerID) {
         super(id);
         subscribe(new TableEventChange(this));
-        appendChange(new TableCreated(tableNum.value(), waiter.value(), costumerID.value())).apply();
+        appendChange(new TableCreated(tableNum.value(), costumerID.value())).apply();
     }
 
     private Table(TableID id){
@@ -51,5 +46,11 @@ public class Table extends AggregateRoot<TableID> {
     public void removeCostumer(String costumerID){
         Objects.requireNonNull(costumerID);
         appendChange(new CostumerRemoved(costumerID)).apply();
+    }
+
+    public void addWaiter(WaiterID waiterID, String name){
+        Objects.requireNonNull(waiterID);
+        Objects.requireNonNull(name);
+        appendChange(new WaiterAdded(waiterID.value(), name)).apply();
     }
 }

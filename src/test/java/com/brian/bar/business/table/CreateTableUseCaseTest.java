@@ -34,12 +34,10 @@ class CreateTableUseCaseTest {
         CreateTableCommand createTableCommand = new CreateTableCommand(
                 "tableID",
                 5,
-                "Waiter name",
                 "costumer1"
         );
         TableCreated tableCreated = new TableCreated(
                 5,
-                "Waiter name",
                 "costume1"
         );
 
