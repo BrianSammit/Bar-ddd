@@ -7,7 +7,6 @@ import com.brian.bar.domain.table.command.CreateTableCommand;
 import com.brian.bar.domain.table.values.CostumerID;
 import com.brian.bar.domain.table.values.TableID;
 import com.brian.bar.domain.table.values.TableNum;
-import com.brian.bar.domain.table.values.WaiterID;
 import com.brian.bar.generic.DomainEvent;
 import org.springframework.stereotype.Component;
 

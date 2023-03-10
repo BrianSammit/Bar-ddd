@@ -2,6 +2,8 @@ package com.brian.bar.domain.order;
 
 import com.brian.bar.domain.drink.Drink;
 import com.brian.bar.domain.drink.values.DrinkID;
+import com.brian.bar.domain.drink.values.Name;
+import com.brian.bar.domain.drink.values.Price;
 import com.brian.bar.domain.order.event.DrinkAdded;
 import com.brian.bar.domain.order.event.DrinkRemoved;
 import com.brian.bar.domain.order.event.OrderCreated;
@@ -23,7 +25,10 @@ public class OrderEventChange extends EventChange {
 
         apply((DrinkAdded event) -> {
             Drink drink = new Drink(
-                    DrinkID.of(event.getDrinkID())
+                    DrinkID.of(event.getDrinkID()),
+                    new Name(event.getName()),
+                    new Price(event.getPrice()),
+                    new Modification(event.getModification())
             );
             order.drinks.add(drink);
         });
