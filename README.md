@@ -105,7 +105,7 @@ To check the tests:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/BrianSammit/React_bookstore/issues).
+Feel free to check the [issues page](https://github.com/BrianSammit/Bar-ddd/issues).
 
 ## Show your support
 
