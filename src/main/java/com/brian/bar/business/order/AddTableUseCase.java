@@ -24,7 +24,7 @@ public class AddTableUseCase implements UseCaseForCommand<AddTableCommand> {
     public List<DomainEvent> apply(AddTableCommand command) {
         List<DomainEvent> orderEvent = eventRepository.findByAggregatedRootId(command.getOrderID());
         Order order = Order.from(OrderID.of(command.getOrderID()), orderEvent);
-        order.addTable(TableID.of(command.getTableID()), command.getTableNum(), command.getCostumerID());
+        order.addTable(TableID.of(command.getTableID()), command.getTableNum(), command.getCostumerID(), command.getOrderID());
         return order.getUncommittedChanges().stream().map(eventRepository::saveEvent).toList();
     }
 }

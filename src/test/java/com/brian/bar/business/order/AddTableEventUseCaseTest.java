@@ -1,7 +1,7 @@
 package com.brian.bar.business.order;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.domain.order.command.ChangeTableCommand;
+import com.brian.bar.domain.order.event.DrinkAdded;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.event.TableAdded;
 import com.brian.bar.generic.DomainEvent;
@@ -20,54 +20,46 @@ import java.util.List;
 
 
 @ExtendWith(MockitoExtension.class)
-class ChangeTableUseCaseTest {
+class AddTableEventUseCaseTest {
+
     @Mock
     private EventRepository eventRepository;
-    private ChangeTableUseCase changeTableUseCase;
+    private AddTableEventUseCase addTableEventUseCase;
 
     @BeforeEach
-    void setup() {
-        changeTableUseCase = new ChangeTableUseCase(eventRepository);
+    void setup(){
+        addTableEventUseCase = new AddTableEventUseCase(eventRepository);
     }
 
     @Test
     void successfulScenario() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         OrderCreated orderCreated = new OrderCreated(
                 "Pending",
-                "Special modification",
+                "Order modification",
                 "tableID",
                 "drinkID"
         );
         orderCreated.setAggregateRootId("orderID");
 
-        TableAdded tableAdded = new TableAdded("tableID", 5, "costumerID", "orderID");
-
-        ChangeTableCommand changeTableCommand = new ChangeTableCommand(
-                "tableID",
-                7,
-                "costumerID",
-                "orderID"
-        );
-
-        Mockito.when(eventRepository.findByAggregatedRootId(changeTableCommand.getOrderID()))
-                .thenAnswer(invocationOnMock -> {
+        TableAdded tableAdded = new TableAdded("table1", 7, "costumer1", "orderID");
+        Mockito.when(eventRepository.findByAggregatedRootId(tableAdded.getOrderID()))
+                .thenAnswer(invocationOnMock ->  {
                     List<DomainEvent> eventList = new ArrayList<DomainEvent>();
                     eventList.add(orderCreated);
-                    eventList.add(tableAdded);
                     return eventList;
                 });
 
         Mockito.when(eventRepository.saveEvent(ArgumentMatchers.any(TableAdded.class)))
                 .thenAnswer(invocationOnMock -> {
-                    return invocationOnMock.getArgument(0);
+                    return  invocationOnMock.getArgument(0);
                 });
 
-        List<DomainEvent> domainEventList = changeTableUseCase.apply(changeTableCommand);
+        List<DomainEvent> domainEventList = addTableEventUseCase.apply(tableAdded);
 
-        Assertions.assertEquals(1, domainEventList.size());
-        Assertions.assertNotEquals(3, domainEventList.size());
-        Assertions.assertEquals("orderID", domainEventList.get(0).aggregateRootId());
-        Assertions.assertNotEquals("order", domainEventList.get(0).aggregateRootId());
+        Assertions.assertEquals(1,domainEventList.size());
+        Assertions.assertNotEquals(3,domainEventList.size());
+        Assertions.assertEquals("orderID",domainEventList.get(0).aggregateRootId());
+        Assertions.assertNotEquals("order",domainEventList.get(0).aggregateRootId());
         Assertions.assertEquals(7, domainEventList.get(0).getClass().getMethod("getTableNum").invoke(domainEventList.get(0)));
         Assertions.assertNotEquals(5, domainEventList.get(0).getClass().getMethod("getTableNum").invoke(domainEventList.get(0)));
     }
