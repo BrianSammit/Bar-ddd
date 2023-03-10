@@ -4,10 +4,7 @@ import com.brian.bar.domain.drink.Drink;
 import com.brian.bar.domain.drink.values.DrinkID;
 import com.brian.bar.domain.drink.values.Name;
 import com.brian.bar.domain.drink.values.Price;
-import com.brian.bar.domain.order.event.DrinkAdded;
-import com.brian.bar.domain.order.event.DrinkRemoved;
-import com.brian.bar.domain.order.event.OrderCreated;
-import com.brian.bar.domain.order.event.TableAdded;
+import com.brian.bar.domain.order.event.*;
 import com.brian.bar.domain.order.values.Modification;
 import com.brian.bar.domain.order.values.Status;
 import com.brian.bar.domain.table.Table;
@@ -42,6 +39,14 @@ public class OrderEventChange extends EventChange {
         });
 
         apply((TableAdded event) -> {
+            order.table = new Table(
+                    TableID.of(event.getTableID()),
+                    new TableNum(event.getTableNum()),
+                    CostumerID.of(event.getCostumerID())
+            );
+        });
+
+        apply((TableChange event) -> {
             order.table = new Table(
                     TableID.of(event.getTableID()),
                     new TableNum(event.getTableNum()),
