@@ -9,9 +9,11 @@ for complex needs by deeply connecting the implementation to an evolving model o
 - Spring
 
 
-## Big Picture, Domain, Subdomains and Bounded context.
+## Big Picture, Domain, Subdomains, Bounded context Ubiquitous language Domain model. 
 
 ![](assets/images/bar%20ddd-Page-1.jpg)
+![](assets/images/bar%20ddd-Page-2.jpg)
+![](assets/images/bar%20ddd-Page-3.jpg)
 
 ## Command driven use cases
 
@@ -19,6 +21,8 @@ for complex needs by deeply connecting the implementation to an evolving model o
 - CreateOrderUseCase
 - AddDrinkUseCase 
 - RemoveDrinkUseCase
+- AddTableUseCase
+- ChangeTableUseCase
 
 **Table**
 - CreateTableUseCase
@@ -27,6 +31,13 @@ for complex needs by deeply connecting the implementation to an evolving model o
 - AddWaiterUseCase
 
 **Drink**
+- CreateDrinkUseCase
+
+## Command driven use cases
+
+**Order**
+- AddDrinkEventUseCase
+- AddTableEventUseCase
 
 [//]: # (**Endpoints:**)
 
@@ -61,9 +72,27 @@ Open the project with your favorite IDE. I recommend you to use IntelliJIDEA
 
 ### Tests
 
+**Order**
+- CreateOrderUseCaseTest
+- AddDrinkUseCaseTest
+- RemoveDrinkUseCaseTest
+- AddTableUseCaseTest
+- ChangeTableUseCaseTest
+- AddDrinkEventUseCaseTest
+- AddTableEventUseCaseTest
+
+**Table**
+- CreateTableUseCaseTest
+- AddCostumerUseCaseTest
+- RemoveCostumerUseCaseTest
+- AddWaiterUseCaseTest
+
+**Drink**
+- CreateDrinkUseCaseTest
+
 To check the tests:
 
-- Go to the test folder and chose which test you want to run and click on the play icon next to the test class. 
+- Go to the test folder and chose the test you want to run and click on the play icon next to the test class. 
 
 
 ## Author
