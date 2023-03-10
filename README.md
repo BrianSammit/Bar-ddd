@@ -1,101 +1,69 @@
 # Bar-ddd
 
-LETS SKATE SHOP is an app where you can schedule an skate to test it. This repository is the API created in Ruby on Rails that manage the data for a fron end app made in React. 
-This API is using PostgreSQL as a database and it's deployed on Heroku.
-
-You can take a look to the [Front-end Repository here](https://github.com/BrianSammit/book_appointment_react)
-
-## Screenshot
-
-![](app/assets/images/Capture.JPG)
-
-## API
-
-<a href="https://skate-store-api.herokuapp.com">Check the API data here</a>
+This app is an order app that is build with DDD. Domain-driven design (DDD) is an approach to developing software
+for complex needs by deeply connecting the implementation to an evolving model of the core business concepts.
 
 ## Built With
 
-- Ruby 3.0.2
-- Ruby on Rails  6.1.4.1
-- PostgreSQL
-- Rspec
-
-### API Documentation
-
-You don't need an API key to access the data. So you can use this API.
+- Java 17
+- Spring
 
 
-**Allowed HTTPS requests:**
+## Big Picture, Domain, Subdomains and Bounded context.
 
-- POST: To update resource
-- GET: Get a resource or list of resources
-- DELETE: To delete a resource
+![](assets/images/bar%20ddd-Page-1.jpg)
 
-**Description Of Usual Service Responses:**
+## Command driven use cases
 
-- 200 OK - the request was successful
-- 204 No Content - the request was successful but there is no representation to return
-- 400 Bad Request - the request could not be understood or was missing required parameters
-- 401 Unauthorized - authentication failed or user doesn't have permissions for requested operation
-- 403 Forbidden - access denied
-- 404 Not Found - resource was not found
-- 405 Method Not Allowed - requested method is not supported for resource.
+**Order**
+- CreateOrderUseCase
+- AddDrinkUseCase 
+- RemoveDrinkUseCase
 
-**Endpoints:**
+**Table**
+- CreateTableUseCase
+- AddCostumerUseCase
+- RemoveCostumerUseCase
+- AddWaiterUseCase
 
-| Method | Endpoint | Functionality |
-|:------:|:--------:|:-------------:|
-|POST    |/sessions|Create a current session|
-|POST    |/registrations|Create users|
-|DELETE    |/logout|Delete the session|
-|GET     |/logged_in|To logged in|
-|GET     |/skateboards| Get all skateboards|
-|GET  |/skateboards/${skateboard_id}| Get a single skateboard|
-|GET     |/appointments      |Get all appointments|
+**Drink**
+
+[//]: # (**Endpoints:**)
+
+[//]: # ()
+[//]: # (| Method | Endpoint | Functionality |)
+
+[//]: # (|:------:|:--------:|:-------------:|)
+
+[//]: # (|POST    |/sessions|Create a current session|)
+
+[//]: # (|POST    |/registrations|Create users|)
+
+[//]: # (|DELETE    |/logout|Delete the session|)
+
+[//]: # (|GET     |/logged_in|To logged in|)
+
+[//]: # (|GET     |/skateboards| Get all skateboards|)
+
+[//]: # (|GET  |/skateboards/${skateboard_id}| Get a single skateboard|)
+
+[//]: # (|GET     |/appointments      |Get all appointments|)
 
 ### Setup
 
-To run this project locally, please ensure you have Ruby and Ruby on Rails installed on your machine, then clone this repository by running.
+To run this project locally, please ensure you have Java installed on your machine, then clone this 
+repository by running.
 
 ```bash
-git clone https://github.com/BrianSammit/book_appointment_api.git
+git clone https://github.com/BrianSammit/Bar-ddd.git
 ```
-Open your terminal and CD to the directory where you clone the repository.
-
-Now run:
-
-```bash
-bundle install
-```
-
-To setup the database run:
-
-```bash
-rails db:create
-rails db:migrate
-```
-It's super important to populate the app, so now run:
-
-```bash
-rails db:seed
-```
-To set up the server put:
-```bash
-rails s -p 3001
-```
-After this you can open your favorite web-browser and copy paste the next:
-
-```bash
-http://localhost:3001
-```
+Open the project with your favorite IDE. I recommend you to use IntelliJIDEA
 
 ### Tests
 
-To check the tests, just run:
+To check the tests:
 
-```bash
-rspec
-```
+- Go to the test folder and chose which test you want to run and click on the play icon next to the test class. 
 
 
 ## Author
@@ -118,8 +86,7 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- The Odin Project
-- Microverse
+- Softka
 
 ## License
 
