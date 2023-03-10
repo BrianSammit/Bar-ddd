@@ -15,6 +15,24 @@ for complex needs by deeply connecting the implementation to an evolving model o
 ![](assets/images/bar%20ddd-Page-2.jpg)
 ![](assets/images/bar%20ddd-Page-3.jpg)
 
+## Agregate root, Entities and Value objects
+
+| [AR]  | [Entities]  |  [VO]  |
+|:-----:|:-----------:|:------:|
+| Table |   Waiter    |  Name  |
+|       |  Costumer   | number |
+
+| [AR]  | [Entities] |     [VO]     |
+|:-----:|:----------:|:------------:|
+| Order |            |    Status    |
+|       |            | Modification |
+
+| [AR]  | [Entities] |     [VO]     |
+|:-----:|:----------:|:------------:|
+| Drink |            |    Price     |
+|       |            | Modification |
+|       |            |     Name     |
+
 ## Command driven use cases
 
 **Order**
@@ -38,27 +56,7 @@ for complex needs by deeply connecting the implementation to an evolving model o
 **Order**
 - AddDrinkEventUseCase
 - AddTableEventUseCase
-
-[//]: # (**Endpoints:**)
-
-[//]: # ()
-[//]: # (| Method | Endpoint | Functionality |)
-
-[//]: # (|:------:|:--------:|:-------------:|)
-
-[//]: # (|POST    |/sessions|Create a current session|)
-
-[//]: # (|POST    |/registrations|Create users|)
-
-[//]: # (|DELETE    |/logout|Delete the session|)
-
-[//]: # (|GET     |/logged_in|To logged in|)
-
-[//]: # (|GET     |/skateboards| Get all skateboards|)
-
-[//]: # (|GET  |/skateboards/${skateboard_id}| Get a single skateboard|)
-
-[//]: # (|GET     |/appointments      |Get all appointments|)
+**Endpoints:**
 
 ### Setup
 
