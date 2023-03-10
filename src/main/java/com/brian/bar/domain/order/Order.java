@@ -41,12 +41,13 @@ public class Order extends AggregateRoot<OrderID> {
         return  order;
     }
 
-    public void addDrink(DrinkID drinkID, String name, Float price, String  modification){
+    public void addDrink(DrinkID drinkID, String name, Float price, String  modification, String orderID){
         Objects.requireNonNull(drinkID);
         Objects.requireNonNull(name);
         Objects.requireNonNull(price);
         Objects.requireNonNull(modification);
-        appendChange(new DrinkAdded(drinkID.value(), name, price, modification)).apply();
+        Objects.requireNonNull(orderID);
+        appendChange(new DrinkAdded(drinkID.value(), name, price, modification, orderID)).apply();
     }
 
     public void removeDrink(String drinkID){

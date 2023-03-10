@@ -1,7 +1,6 @@
 package com.brian.bar.business.order;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.domain.order.command.AddTableCommand;
 import com.brian.bar.domain.order.command.ChangeTableCommand;
 import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.order.event.TableAdded;
@@ -19,7 +18,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class ChangeTableUseCaseTest {
