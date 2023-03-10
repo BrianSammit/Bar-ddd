@@ -1,11 +1,8 @@
 package com.brian.bar.business.drink;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.business.table.CreateTableUseCase;
 import com.brian.bar.domain.drink.command.CreateDrinkCommand;
 import com.brian.bar.domain.drink.event.DrinkCreated;
-import com.brian.bar.domain.table.command.CreateTableCommand;
-import com.brian.bar.domain.table.event.TableCreated;
 import com.brian.bar.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

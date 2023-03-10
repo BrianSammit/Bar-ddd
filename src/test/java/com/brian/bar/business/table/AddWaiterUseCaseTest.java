@@ -1,9 +1,7 @@
 package com.brian.bar.business.table;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.domain.table.command.AddCostumerCommand;
 import com.brian.bar.domain.table.command.AddWaiterCommand;
-import com.brian.bar.domain.table.event.CostumerAdded;
 import com.brian.bar.domain.table.event.TableCreated;
 import com.brian.bar.domain.table.event.WaiterAdded;
 import com.brian.bar.generic.DomainEvent;

@@ -1,9 +1,6 @@
 package com.brian.bar.business.table;
 
 import com.brian.bar.business.commons.EventRepository;
-import com.brian.bar.business.order.CreateOrderUseCase;
-import com.brian.bar.domain.order.command.CreateOrderCommand;
-import com.brian.bar.domain.order.event.OrderCreated;
 import com.brian.bar.domain.table.command.CreateTableCommand;
 import com.brian.bar.domain.table.event.TableCreated;
 import com.brian.bar.generic.DomainEvent;
